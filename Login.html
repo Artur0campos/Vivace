@@ -29,10 +29,29 @@
     <div id="main_section">
         <div id="inscricao">
             <h2>Formulário de Contato</h2>
-            <input id="input-name" type="text" placeholder="Nome Completo"><br>
-            <input id="input-email" type="text" placeholder="Email válido"><br>
-            <input id="input-tipoAula" type="text" placeholder="Número de telefone"><br>
+            <input id="input-name" type="text" placeholder="Nome Completo" required><br>
+            <input id="input-email" type="text" placeholder="Email válido" required><br>
+            <input id="input-numero" type="tel" placeholder="(00) 00000-0000" maxlength="15" required><br>
+            <script>
+                const telefone = document.getElementById('input-numero');
+
+                telefone.addEventListener('input', (e) => {
+                    let value = e.target.value.replace(/\D/g, ''); // remove tudo que não é número
+
+                    if (value.length > 11) value = value.slice(0, 11); // limita a 11 dígitos
+
+                    if (value.length > 6) {
+                        e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
+                    } else if (value.length > 2) {
+                        e.target.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
+                    } else {
+                        e.target.value = value;
+                    }
+                });
+            </script>
+
             <button id="inscricao-btn">Inscrever</button>
+            <p id="mensagem"></p>
         </div>
 
         <div id="mapa">

@@ -13,3 +13,4 @@ function aulas(){
 function planos(){
     window.location.href = "index.html#planos"
 }
+
