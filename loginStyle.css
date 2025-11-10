@@ -82,6 +82,7 @@ p{
 #main_section{
     display: grid;
     grid-template-columns: 1fr 1fr;
+    flex-wrap: wrap;
     gap: 2rem;
     padding: 2rem;
     min-height: 80vh; /* aumenta a altura da seção */
@@ -202,4 +203,66 @@ p{
 
 .footer img {
   width: 30px;
+}
+
+@media (max-width: 1024px) {
+  #main_section {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+  }
+
+  #inscricao {
+    margin-left: 0;
+  }
+
+  #inscricao input,
+  #inscricao-btn {
+    max-width: 90%;
+  }
+
+  .navbar {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .title {
+    position: static;
+    transform: none;
+  }
+
+  #inscricao {
+    padding: 1.5rem;
+  }
+
+  .missao p {
+    width: 90%;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  #inscricao h2 {
+    font-size: 1.5rem;
+  }
+
+  #inscricao input,
+  #inscricao-btn {
+    font-size: 0.9rem;
+    padding: 0.6rem;
+  }
+
+  .navbar a {
+    padding: 0.3rem 0.7rem;
+  }
 }
