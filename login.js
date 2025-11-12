@@ -1,9 +1,7 @@
-let nameInput = document.getElementById('input-name')
-let emailInput = document.getElementById('input-email')
-let numInput = document.getElementById('input-numero')
-
-let btn = document.getElementById('inscricao-btn')
-const msg = document.getElementById('mensagem')
+let nameLogin = document.getElementById('input-name-login')
+let emailLogin = document.getElementById('input-email-login')
+let numLogin = document.getElementById('input-numero-login')
+let confirmar = document.getElementById('login-btn')
 
 function inscricao(){
     window.location.href = "Contato.html"
@@ -59,19 +57,27 @@ function validateTel(telefone){
     return false;
 }
 
+confirmar.addEventListener('click', function(event){
+    event.preventDefault()
 
-btn.addEventListener('click',function(event){
-    const name = nameInput.value;
-    const email = emailInput.value;
-    const num = numInput.value;
-    if(validateName(name) && validateEmail(email) && validateTel(num)){
-        msg.innerText = "Inscrição feita com sucesso"
-        localStorage.setItem("Name", name) 
-        localStorage.setItem("email", email) 
-        localStorage.setItem("Tel", num) 
-        event.preventDefault();
-        
-    }else {
-        msg.innerText = "";
+    const nameDigitado = nameLogin.value;
+    const emailDigitado = emailLogin.value;
+    const numDigitado = numLogin.value;
+
+    if (!validateName(nameDigitado) || !validateEmail(emailDigitado) || !validateTel(numDigitado)) {
+       window.alert("Por favor Preencha os dados corretamente")
+    }
+
+    const nameSalvo = localStorage.getItem("Name");
+    const emailSalvo = localStorage.getItem("email");
+    const numSalvo = localStorage.getItem("Tel");
+    
+    if(nameDigitado === nameSalvo && emailDigitado === emailSalvo && numDigitado === numSalvo){
+        window.alert("Acesso concluído!")
+        window.location.href = "content.html"
+    }
+
+    else {
+        window.alert("Escolha um dos planos e faça o cadastro")
     }
 })

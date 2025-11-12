@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styleLogin.css">
-    <title>Login</title>
+    <link rel="stylesheet" href="styleContato.css">
+    <title>Inscrição</title>
 </head>
 
 <body>
@@ -28,33 +28,7 @@
     </nav>
 
     <div id="main_section">
-        <div id="inscricao">
-            <h2>Login</h2>
-            <input id="input-name-login" type="text" placeholder="Nome Completo" required><br>
-            <input id="input-email-login" type="text" placeholder="Email válido" required><br>
-            <input id="input-numero-login" type="tel" placeholder="(00) 00000-0000" maxlength="15" required><br>
-            <script>
-                const telefone = document.getElementById('input-numero-login');
-
-                telefone.addEventListener('input', (e) => {
-                    let value = e.target.value.replace(/\D/g, '');
-
-                    if (value.length > 11) value = value.slice(0, 11);
-
-                    if (value.length > 6) {
-                        e.target.value = `(${value.slice(0, 2)}) ${value.slice(2, 7)}-${value.slice(7)}`;
-                    } else if (value.length > 2) {
-                        e.target.value = `(${value.slice(0, 2)}) ${value.slice(2)}`;
-                    } else {
-                        e.target.value = value;
-                    }
-                });
-            </script>
-
-            <button id="login-btn">Confirmar</button>
-            <p id="mensagem"></p>
-        </div>
-
+        fazer essa parte
     </div>
 
     <div class="missao">
@@ -88,7 +62,7 @@
             </div>
         </div>
     </footer>
-    <script src="login.js"></script>
+    <script src="main.js"></script>
 </body>
 
 </html>
