@@ -33,6 +33,7 @@ p{
   align-items: center;
   padding: 1rem 2rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  min-height: 90px
 }
 .title{
     position: absolute;
@@ -138,4 +139,10 @@ p{
 .footer a{
   text-decoration: none;
   color: #fefde9;
+}
+
+@media (max-width: 768px){
+  .logo,.icon-left{
+    display: none;
+  }
 }
